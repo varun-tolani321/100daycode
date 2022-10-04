@@ -1,0 +1,105 @@
+QUESTION 2. WRITE A PROGRAM TO PRINT THE ENTER ORIGINAL MATRIX IN ROW WISE SORTED ORDER AND THEN DISPLAY THE MATRIX AFTER ROW WISE SORTING.
+
+PROGRAMMING LANGUAGE- JAVA
+
+======================================================================================================================================================================
+===========
+   OUTPUT:   
+===========
+Enter size of matrix
+4
+Enter size of matrix
+5
+enter digits
+3
+4
+5
+76
+56
+56
+54
+66
+65
+45
+655
+67
+655
+455
+65
+4567
+12
+123
+1234
+543
+ORIGINAL MATRIX
+3	4	5	76	56	
+56	54	66	65	45	
+655	67	655	455	65	
+4567	12	123	1234	543	
+
+ROW WISE SORTED MATRIX
+3	4	5	56	76	
+45	54	56	65	66	
+65	67	455	655	655	
+12	123	543	1234	4567	
+
+==================================================================================================================================================================   
+ ============  
+   CODING:
+=============
+
+import java.util.*;
+class sortingrow
+{
+public static void main(String[]args)
+{
+Scanner Sc =new Scanner (System.in);
+System.out.println("Enter size of matrix");
+int m =Sc. nextInt();   // accepting row size  
+System.out.println("Enter size of matrix");
+int n =Sc. nextInt();    //accepting column size
+int a[][]=new int [m][n];
+int b[]=new int[n];
+int i,j,k,h,t=0;
+if(m>2&&n>2&&m<10&&n<10)  //condition to check validity
+{System.out.println("enter digits");
+for(i=0;i<m;i++)     // looping
+{
+for(j=0;j<n;j++)
+{
+a[i][j] =Sc.nextInt();  // accepting array elements.
+}
+}System.out.println("ORIGINAL MATRIX");
+for(i=0;i<m;i++)
+{
+for(j=0;j<n;j++)
+{System.out.print(a[i][j]+"\t");}  // displaying original matrix
+System.out.println();}
+System.out.println();
+System.out.println("ROW WISE SORTED MATRIX");
+for(i=0;i<m;i++)
+{for(j=0;j<n;j++)
+{
+b[j]=a[i][j];}
+for(k=0;k<n;k++)   //looping
+{
+for(h=0;h<n-k-1;h++)  //looping
+{
+if(b[h]>b[h+1])       //condition for sorting
+{
+t=b[h];
+b[h]=b[h+1];  // swaping the numbers to get sorted
+b[h+1]=t;
+}
+}
+}
+for(k=0;k<n;k++)
+System.out.print(b[k]+"\t");  // displaying matrix after sorting
+System.out.println();
+}
+}
+else
+System.out.println("MATRIX SIZE OUT OF RANGE");
+}
+}
+===============================================================================================================================================================
