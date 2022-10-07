@@ -1,0 +1,132 @@
+
+DAY 4 #100DAYSOFCODECHALLENGE
+==============================
+
+QUESTION 4:
+============
+WRITE A PROGRAM TO PRINT THE SUBRACTED MATRIX OF ENTERED TWO SQUARE MATRIX.
+====================================================================================================================================================================
+
+INPUT 1:
+========
+ Size of array3
+
+ Enter elements of array.
+23
+4
+54
+4655
+43
+34
+4645
+345
+45
+
+ Enter elements of array.
+454
+45
+445
+4
+534
+4244
+545
+454
+45
+=====================================================================================================================================================================
+
+EXPECTED OUTPUT 1:
+==================
+OUTPUT:
+MATRIX
+
+-431	-41	-391	
+4651	-491	-4210	
+4100	-109	0	
+
+===================================================================================================================================================================
+
+INPUT 2:
+========
+
+Size of array3
+
+ Size of array4
+ 
+ ===================================================================================================================================================================
+ 
+ EXPECTED OUTPUT 2:
+===================
+CAN'T SUBSTRACT BECAUSE THE SQUARE MATRIX SIZE MUST BE SAME,ITS WRONG INPUT
+
+===================================================================================================================================================================
+
+PROGRAMING LANGUAGE:
+=====================
+JAVA
+
+=====================================================================================================================================================================
+
+CODING:
+========
+
+import java.util.*;
+class Matrix
+{
+static Scanner sc=new Scanner(System.in);
+int arr[][]=new int[25][25];//initializing this variables as public variables
+int m,n;                     //initializing as a public variable
+Matrix(int mm,int nn)   //constructor
+{
+m=mm;
+n=nn;      //giving the values to public variables 
+}
+void fillarray()  //function to fill array
+{
+System.out.println("\n Enter elements of array.");
+for(int i=0;i<m;i++)  //looping
+{
+for(int j=0;j<n;j++)  //looping
+arr[i][j]=sc.nextInt();  //taking inputs of array elements
+}
+}
+Matrix SubMat(Matrix A) //function to subtact two arrays
+{
+Matrix B=new Matrix(m,n);
+for(int i=0;i<m;i++)
+{
+for(int j=0;j<n;j++)
+B.arr[i][j]=arr[i][j]-A.arr[i][j];
+}
+return B;  //returning the result in main function
+}
+void display()   //funtion to display subtracted array that is result
+{System.out.println("OUTPUT:"+"\n"+"MATRIX");
+for(int i=0;i<m;i++)
+{
+System.out.println();
+for(int j=0;j<n;j++)
+System.out.print(arr[i][j]+"\t");
+}
+}
+public static void main(String[]args)
+{
+System.out.print("\n Size of array");
+int x=sc.nextInt();
+System.out.print("\n Size of array");
+int y=sc.nextInt();
+if(x==y)
+{
+Matrix A=new Matrix(x,y);
+Matrix B=new Matrix(x,y);
+Matrix C=new Matrix(x,y);
+A.fillarray();  //calling the functins
+B.fillarray();
+C=A.SubMat(B);
+C.display();
+}
+else
+{System.out.println("CAN'T SUBSTRACT BECAUSE THE SQUARE MATRIX SIZE MUST BE SAME,ITS WRONG INPUT");
+}
+}
+}
+=====================================================================================================================================================================
