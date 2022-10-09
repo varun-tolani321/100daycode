@@ -1,0 +1,97 @@
+
+DAY 6
+======
+
+QUESTION 6:-
+=============
+
+WRITE A PROGRAM TO ENTER A SENTENCE AND CONVERT IT IN CAESAR CIPER TEXT,THEN PRINT THE SENTENCE AFTER CONVERTING IT.
+
+======================================================================================================================================================================
+
+PROGRAMMING LANGUAGE:-
+=======================
+
+JAVA
+
+=====================================================================================================================================================================
+
+INPUT 1:-
+==========
+Enter a sentence:
+MY NAME IS VARUN TOLANI,STUDENT OF MCA.
+
+EXPECTED OUTPUT 1:-
+=====================
+OUTPUT:The Ciper text is :
+ZL ANZR VF INEHA GBYNAV,FGHQRAG BS ZPN.
+
+
+INPUT 2:-
+==========
+Enter a sentence:
+VIT BHOPAL is a place where we can become a successful person and can achieve our goals.
+
+EXPECTED OUTPUT 2:-
+=====================
+OUTPUT:The Ciper text is :
+IVG OUBCNY vf n cynpr jurer jr pna orpbzr n fhpprffshy crefba naq pna npuvrir bhe tbnyf.
+
+
+
+INPUT 3:-
+==========
+Enter a sentence:
+Who are you?
+
+EXPECTED OUTPUT 3:-
+=====================
+OUTPUT:The Ciper text is :
+Jub ner lbh?
+
+
+=====================================================================================================================================================================
+
+
+CODING:-
+=========
+
+
+
+import java.util.*;
+class caesar
+{
+public static void main(String[]args)
+{
+caesar ob=new caesar();                       //making an object
+Scanner sc=new Scanner(System.in);
+System.out.println("Enter a sentence:");
+String s=sc.nextLine();                      //taking input of a sentence.
+int l=s.length();                            //l stores the length of the sentence.
+if(l<4||l>99)                                //condition to check sentence is valid or not.
+System.out.println("Invalid Input");
+else
+ob.rotate(s);                                //calling rotate function
+}
+void rotate(String w)                         //function to rotate 13 alphabets
+{
+char ch;
+int a=0;
+String answer="";
+for(int i=0;i<w.length();i++)                   //looping
+{
+ch=w.charAt(i);
+if(Character.isLetter(ch))
+{
+a=ch+13;
+if((Character.isUpperCase(ch)&&a>90)||(Character.isLowerCase(ch)&&a>122))//condition to check uppercase and lowercase
+a=a-26;
+ch=(char)a;
+}
+answer=answer+=ch;                               //answer variable will store the rotated sentence.
+}
+System.out.println("OUTPUT:The Ciper text is :\n"+answer); //printing the answer
+}
+}
+
+======================================================================================================================================================================
