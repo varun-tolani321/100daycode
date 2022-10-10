@@ -1,0 +1,161 @@
+
+DAY 7
+======
+
+CODING LANGUAGE:-
+==================
+
+JAVA
+
+=======================================================================================================================================================================
+
+QUESTION 7:-
+=============
+
+WRITE A PROGRAM TO CHECK WHETHER THE ENTERED NUMBER IS A EVIL NUMBER OR NOT ALSO PRINT THEIR BINARY EQUIVALENT.IF THE ENTERED NUMBER IS GREATER THAN OR EQUAL TO 100 
+THAN PRINT A PROPER STATEMENT.
+
+=====================================================================================================================================================================
+
+INPUT 1:
+=========
+Enter a no.
+10
+
+EXPECTED OUTPUT 1:
+==================
+Binary Equivalent:1010
+Number Of 1's:2
+Evil Number
+
+INPUT 2:
+=========
+Enter a no.
+5
+
+EXPECTED OUTPUT 2:
+==================
+Binary Equivalent:101
+Number Of 1's:2
+Evil Number
+
+INPUT 3:
+=========
+Enter a no.
+11
+
+EXPECTED OUTPUT 3:
+==================
+Binary Equivalent:1011
+Number Of 1's:3
+Not an Evil Number
+
+
+INPUT 4:
+=========
+Enter a no.
+9
+
+EXPECTED OUTPUT 4:
+==================
+Binary Equivalent:1001
+Number Of 1's:2
+Evil Number
+
+
+INPUT 5:
+=========
+Enter a no.
+8
+
+EXPECTED OUTPUT 5:
+==================
+Binary Equivalent:1000
+Number Of 1's:1
+Not an Evil Number
+
+INPUT 6:
+=========
+Enter a no.
+99
+
+EXPECTED OUTPUT 6:
+==================
+Binary Equivalent:1100011
+Number Of 1's:4
+Evil Number
+
+
+INPUT 7:
+=========
+Enter a no.
+100
+
+EXPECTED OUTPUT 7:
+==================
+Number Out Of Range
+
+
+
+======================================================================================================================================================================
+
+
+
+CODING:-
+=========
+
+
+import java.util.*;
+class evilnumber
+{
+public static void main(String[]args)
+{
+Scanner sc=new Scanner(System.in);
+System.out.println("Enter a no.");
+int n=sc.nextInt();          //input the number
+int s=0,d=0,c=0,i,f=n,rev=0,m=0; //initialization
+if(n>2&&n<100)
+{
+while(n>0)                    //looping
+{
+if(n%2==0)
+m++;
+if(n%2==1)
+break;
+n/=2;
+}
+n=f;
+while(n>0)                     //looping
+{d=n%2;                         //digit extraction
+s=(s*10)+d;                    //to reverse
+n/=2;
+}f=s;
+while(f>0)                       //looping
+{
+d=f%10;
+rev=rev*10+d;                    //to reverse the number
+f/=10;
+}
+for(i=1;i<=m;i++)               //looping
+rev*=10;
+System.out.println("Binary Equivalent:"+rev);
+while(s>0)                       //looping
+{
+d=s%10;
+if(d==1)
+c++;
+s/=10;}
+System.out.println("Number Of 1's:"+c);
+if(c%2==0)                     //condition to check evil number.
+System.out.println("Evil Number");
+else
+System.out.println("Not an Evil Number");
+}
+else
+{
+System.out.println("Number Out Of Range");
+}
+}
+}
+
+======================================================================================================================================================================
