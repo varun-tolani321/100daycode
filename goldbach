@@ -1,0 +1,141 @@
+DAY 8
+======
+
+CODING LANGUAGE:-
+==================
+
+JAVA
+
+=====================================================================================================================================================================
+
+INPUT 1:
+=========
+Enter a number
+23
+
+EXPECTED OUTPUT 1:
+===================
+Invalid Input.Number Is Odd
+
+
+
+INPUT 2:
+=========
+Enter a number
+44
+
+EXPECTED OUTPUT 2:
+===================
+Prime Pairs Are:
+13,31
+7,37
+3,41
+
+
+
+INPUT 3:
+=========
+Enter a number
+98
+
+
+EXPECTED OUTPUT 3:
+===================
+Invalid Input.Number Out Of Range
+
+
+
+INPUT 4:
+=========
+Enter a number
+34
+
+EXPECTED OUTPUT 4:
+===================
+Prime Pairs Are:
+17,17
+11,23
+5,29
+3,31
+
+
+
+INPUT 5:
+=========
+Enter a number
+18
+
+EXPECTED OUTPUT 5:
+===================
+Prime Pairs Are:
+7,11
+5,13
+
+
+
+
+
+=================================================================================================================================================================
+
+
+CODING:
+========
+
+
+
+
+import java.util.*;
+class goldbach
+{
+public static void main(String[]args)
+{
+Scanner sc=new Scanner(System.in);
+System.out.println("Enter a number");
+int n=sc.nextInt();     //taking a input
+int i,j=3,m=1,s=1,c=0,d=0;   //initializing
+if(n<=9||n>=50) //condition to to check that input is valid or not.
+{
+System.out.println("Invalid Input.Number Out Of Range");
+}
+else if(n%2==0)   //conditin to check prime number
+{
+System.out.println("Prime Pairs Are:");
+while(j!=(n-1))   //looping
+{
+for(i=3;i<n;i+=2)    //looping
+{
+if((i+j)==n&&i<=j)
+{
+for(m=1;m<=i;m++)   //looping
+{
+if(i%m==0)        // condition to take out prime pairs
+c++;}                   // c is a counter variable
+for(s=1;s<=j;s++)
+{
+if(j%s==0)             // condition to take out prime pairs
+d++;}            ///d is a counter variable
+if(c==2&&d==2)
+{
+System.out.println(i+","+j);     // printing prime pairs
+break; 
+}
+}
+}
+c=0;
+d=0;
+j+=2;
+}
+}
+else
+{
+System.out.println("Invalid Input.Number Is Odd");
+}
+}
+}
+
+
+
+===================================================================================================================================================================
+
+
+
