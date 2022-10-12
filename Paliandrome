@@ -1,0 +1,161 @@
+
+DAY 9:
+======
+
+CODING LANGUAGE:-
+==================
+
+JAVA
+
+======================================================================================================================================================================
+
+QUESTION 9:-
+=============
+
+WRITE A PROGRAM TO CONVERT A SENTENCE INTO A PALIANDROME SENTENCE AND THEN PRINT THE PALIANDROME SENTENCE.
+
+======================================================================================================================================================================
+
+INPUT & EXPECTED OUTPUT:-
+==========================
+
+
+
+INPUT 1:
+=========
+Enter a sentence
+My name is varun tolani.
+
+EXPECTED OUTPUT 1:
+===================
+MyM nameman  isi  varunurav  tolaninalot 
+
+
+
+
+INPUT 2:
+=========
+Enter a sentence
+my name is varun 5 tolani @#.
+
+EXPECTED OUTPUT 2:
+===================
+mym nameman  isi  varunurav  5  tolaninalot  @#@ 
+
+
+
+
+INPUT 3:
+=========
+Enter a sentence
+i am astudent of VIT Bhopal.
+
+EXPECTED OUTPUT 3:
+===================
+i ama  astudentnedutsa  ofo  VITIV  BhopalapohB 
+
+
+
+
+INPUT 4:
+=========
+Enter a sentence
+i am a student of VIT Bhopal 567.
+
+EXPECTED OUTPUT 4:
+===================
+i ama  a  studentneduts  ofo  VITIV  BhopalapohB  56765 
+
+
+===================================================================================================================================================================
+
+
+
+CODING:-
+=========
+
+
+import java.util.*;
+class paliandrome
+{
+public static void main(String[]args)
+{
+Scanner sc=new Scanner(System.in);
+System.out.println("Enter a sentence");
+String s=sc.nextLine();            //accepting the sentence
+int f=0,len=0,i,j,h=0,c=0;        //initializaing
+char ch,ch1;
+len=s.length();                   // taking the length of the sentence 
+char a[]={'!','.','?'};
+for(i=0;i<3;i++)                   //looping
+{
+if((s.charAt(len-1))==a[i])
+c++;                              // c is a counter variable
+}
+if(c==1)
+{
+for(i=0;i<len;i++)
+{ch=s.charAt(i);
+if(ch==' ')                      //condition to check space
+{
+if(f!=0)
+{for(j=i-f-2;j>=h;j--)          //looping for paliandrome
+{
+ch1=s.charAt(j);
+System.out.print(ch1);
+}
+System.out.print(" ");
+h=i;
+}
+else
+{
+for(j=i-2;j>=h;j--)              // looping
+{
+ch1=s.charAt(j);
+System.out.print(ch1);
+}
+System.out.print(" ");
+h=i;
+}
+}
+else if(ch==(s.charAt(len-1)))
+{
+if(f!=0)
+{for(j=i-f-1;j>h-1;j--)
+{
+ch1=s.charAt(j);
+System.out.print(ch1);
+}
+h=i;
+}
+else
+{
+for(j=i-2;j>h-1;j--)
+{
+ch1=s.charAt(j);
+System.out.print(ch1);
+}
+h=i;                         //h variable is a temporary variable
+}
+}
+else
+{
+if(i!=len-1)
+{
+if(ch==s.charAt(i+1))
+f++;
+else if((s.charAt(i+1))!=' ')
+f=0;
+}
+System.out.print(ch);   //displaying the paliandrome sentence
+}
+}
+System.out.println();}
+else
+System.out.println("INVALID INPUT");
+}
+}
+
+
+
+=====================================================================================================================================================================
