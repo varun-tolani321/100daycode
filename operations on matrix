@@ -1,0 +1,253 @@
+
+DAY 10:
+=======
+
+CODING LANGUAGE:
+=================
+
+JAVA
+
+=====================================================================================================================================================================
+
+QUESTION 10:-
+==============
+
+WRITE A PROGRAM TO PERFORM THE OPERATIONS ON THE ENTERED MATRIX.
+1. TO TAKE OUT THE SUM OF HIGHEST NUMBER IN A ROW.
+2. CHECK IF THE MATRIX IS SQUARE MATRIX OR NOT.
+3. IF IT IS SQUARE MATRIX THEN CHANGE ITS DIAGONALS,PUT ENTERED NUMBER.
+
+====================================================================================================================================================================
+
+INPUT AND EXPECTED OUTPUT:
+===========================
+
+INPUT1:
+=======
+
+enter size of row
+4
+enter size of column
+4
+enter array elements.
+345
+43
+3456
+65
+445
+5544
+445
+5
+544
+65
+45
+9
+8
+7
+6
+24
+
+EXPECTED OUTPUT1:
+=================
+345	43	3456	65	
+445	5544	445	5	
+544	65	45	9	
+8	7	6	24	
+Sum=9568
+
+INPUT 1:
+=========
+Enter x=
+444
+
+EXPECTED OUTPUT 1:
+===================
+
+Resultant matrix.
+444	43	3456	444	
+445	444	444	5	
+544	444	444	9	
+444	7	6	444	
+
+=====================================================================================================================
+
+INPUT2:
+=======
+
+enter size of row
+2
+enter size of column
+3
+enter array elements.
+23
+45
+67
+89
+09
+87
+
+EXPECTED OUTPUT 2:
+===================
+23	45	67	
+89	9	87	
+Sum=156
+change is not possible.It is not a square matrix
+
+=====================================================================================================================
+
+INPUT3:
+=======
+
+enter size of row
+4
+enter size of column
+5
+enter array elements.
+45
+76
+54
+456
+765
+4567
+76
+345
+123
+3212
+234
+678
+908
+7
+86
+6
+7
+8
+9
+9012
+
+EXPECTED OUTPUT 3:
+===================
+45	76	54	456	765	
+4567	76	345	123	3212	
+234	678	908	7	86	
+6	7	8	9	9012	
+Sum=15252
+change is not possible.It is not a square matrix
+
+=====================================================================================================================
+
+
+INPUT4:
+=======
+
+enter size of row
+2
+enter size of column
+2
+enter array elements.
+345
+544
+77
+88
+
+EXPECTED OUTPUT 4:
+===================
+345	544	
+77	88	
+Sum=632
+
+INPUT4:
+=======
+Enter x=
+55
+
+EXPECTED OUTPUT 4:
+===================
+Resultant matrix.
+55	55	
+55	55	
+
+
+====================================================================================================================================================================
+
+CODING:-
+=========
+
+
+import java.util.*;
+class matrix_operation
+{
+int arr[][];   // public variable
+int m,n,x;    // public variables
+Scanner sc=new Scanner(System.in);
+void getrowcolumn() // function to enter size of row and columns
+{
+System.out.println("enter size of row");
+m=sc.nextInt();
+System.out.println("enter size of column");
+n=sc.nextInt();
+arr=new int[m][n];  //initializing array
+}
+void getmatrix()   // function to accept the matrix
+{
+System.out.println("enter array elements.");
+int i,j;
+for(i=0;i<m;i++)
+{
+for(j=0;j<n;j++)
+{
+arr[i][j]=sc.nextInt(); // accepting array elements
+}
+}
+}
+void print_mat_and_sum()
+{
+int i,j,max=0,sum=0;
+for(i=0;i<m;i++)
+{
+for(j=0;j<n;j++)
+System.out.print(arr[i][j]+"\t");  // printing the matrix
+System.out.println();
+}
+for(i=0;i<m;i++)
+{max=0;
+for(j=0;j<n;j++)
+{
+if(max<arr[i][j])  // calculating the highest number in row 
+max=arr[i][j];
+}
+sum+=max;               // calculating the sum
+}System.out.println("Sum="+sum);
+}
+void change_diagonals()  // function to chnge the diagonals with x
+{
+if(m!=n)
+System.out.println("change is not possible.It is not a square matrix");
+else
+{int i,j;
+System.out.println("Enter x=");
+x=sc.nextInt();
+System.out.println("Resultant matrix.");
+for(i=0;i<m;i++)
+{
+for(j=0;j<n;j++)
+{
+if(i==j||(i+j)==(m-1))
+System.out.print(x+"\t");  // displaying the resultant matrix
+else
+System.out.print(arr[i][j]+"\t");
+}
+System.out.println();
+}
+}
+}
+public static void main(String[]args)
+{
+matrix_operation ob=new matrix_operation();
+ob.getrowcolumn();
+ob.getmatrix();
+ob.print_mat_and_sum();          // calling functions
+ob.change_diagonals();
+}
+}
+
+=====================================================================================================================================================================
