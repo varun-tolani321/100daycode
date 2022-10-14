@@ -1,0 +1,190 @@
+
+DAY 11
+=======
+
+CODING LANGUAGE:
+=================
+
+JAVA 
+
+======================================================================================================================================================================
+
+QUESTION 11:
+=============
+
+WRITE A PROGRAM TO PRINT THE PATTERN FROM THE ENTERED ELEMENTS. BEFORE PERFORMING THE PATTERN ON THE ELEMENTS SORT THE ENTERED ELENTS ALSO PRINT THE ELEMENTS AFTER
+SORTING.
+
+=====================================================================================================================================================================
+
+INPUT AND EXPECTED OUTPUT:
+===========================
+
+INPUT 1:
+=========
+Enter the size of an array
+6
+Enter array elements
+234
+32
+76
+54
+357
+5533
+
+
+EXPECTED OUTPUT 1:
+===================
+
+SORTED ARRAY:
+32	54	76	234	357	5533	
+FILLED MATRIX
+32	54	76	234	357	5533	
+32	54	76	234	357	32	
+32	54	76	234	32	54	
+32	54	76	32	54	76	
+32	54	32	54	76	234	
+32	32	54	76	234	357	
+
+
+INPUT 2:
+=========
+Enter the size of an array
+10
+
+EXPECTED OUTPUT 2:
+===================
+MATRIX SIZE OUT OF RANGE
+
+
+INPUT 3:
+=========
+Enter the size of an array
+9
+Enter array elements
+2324
+4523
+44
+32
+787
+43
+567
+54
+098
+
+EXPECTED OUTPUT 3:
+===================
+SORTED ARRAY:
+32	43	44	54	98	567	787	2324	4523	
+FILLED MATRIX
+32	43	44	54	98	567	787	2324	4523	
+32	43	44	54	98	567	787	2324	32	
+32	43	44	54	98	567	787	32	43	
+32	43	44	54	98	567	32	43	44	
+32	43	44	54	98	32	43	44	54	
+32	43	44	54	32	43	44	54	98	
+32	43	44	32	43	44	54	98	567	
+32	43	32	43	44	54	98	567	787	
+32	32	43	44	54	98	567	787	2324	
+
+
+
+INPUT 4:
+=========
+Enter the size of an array
+3
+Enter array elements
+2345
+876
+65
+
+EXPECTED OUTPUT 4:
+===================
+SORTED ARRAY:
+65	876	2345	
+FILLED MATRIX
+65	876	2345	
+65	876	65	
+65	65	876	
+
+
+
+INPUT 5:
+=========
+Enter the size of an array
+2
+
+EXPECTED OUTPUT 4:
+===================
+MATRIX SIZE OUT OF RANGE
+
+
+
+=====================================================================================================================================================================
+
+CODING:
+========
+
+import java.util.*;
+class matrix_filled
+{public static void main(String[]args)
+{
+Scanner sc=new Scanner(System.in);
+System.out.println("Enter the size of an array");
+int n=sc.nextInt();  // accepting the size
+if(n>2&&n<10)
+{
+int a[]=new int[n];
+int b[][]=new int[n][n]; // initializing two dementional array
+int i,j,t=0,k,h=0,m=0;
+System.out.println("Enter array elements");
+for(i=0;i<n;i++)     //looping
+a[i]=sc.nextInt();   // accepting the elements in the array
+System.out.println("SORTED ARRAY:");
+for(i=0;i<n;i++)
+{
+for(j=0;j<n-i-1;j++)   //looping
+{
+if(a[j]>a[j+1])
+{
+t=a[j];
+a[j]=a[j+1];    //swaping the number for sorting
+a[j+1]=t;
+}
+}
+}
+for(i=0;i<n;i++)
+System.out.print(a[i]+"\t");  // displaying the sorted array
+System.out.println();
+System.out.println("FILLED MATRIX");
+for(i=0;i<n;i++)
+{
+for(j=n-1;j>=i;j--)
+{
+b[i][h]+=a[m];
+h++;m++;     //filling the matrix with the pattern
+} 
+m=0;
+for(k=1;k<=i;k++)
+{
+b[i][h]=a[m];
+h++;
+m++;
+}
+h=0;m=0;
+}
+for(i=0;i<n;i++)
+{
+for(j=0;j<n;j++)
+{
+System.out.print(b[i][j]+"\t");  // displaying the filled matrix with full pattern
+}
+System.out.println();
+}
+}
+else
+System.out.println("MATRIX SIZE OUT OF RANGE");
+}
+}
+
+=====================================================================================================================================================================
