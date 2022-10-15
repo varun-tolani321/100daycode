@@ -1,0 +1,202 @@
+
+DAY 12
+=======
+
+CODING LANGUAGE:
+=================
+
+JAVA
+
+=====================================================================================================================================================================
+
+INPUT AND EXPECTED OUTPUT:
+===========================
+
+INPUT 1:
+=========
+
+Enter the limit.
+4
+enter decimal integers in array.
+43
+45
+667
+6
+enter binarys integers in array.
+100
+1001
+111
+1110
+enter 1 for decimal to binary and 2 for binary to decimal
+1
+
+EXPECTED OUTPUT 1:
+===================
+
+Conversion
+101011
+101101
+1010011011
+110
+
+
+INPUT 2:
+=========
+
+Enter the limit.
+4
+enter decimal integers in array.
+43
+45
+667
+6
+enter binarys integers in array.
+100
+1001
+111
+1110
+enter 1 for decimal to binary and 2 for binary to decimal
+2
+
+EXPECTED OUTPUT 2:
+===================
+
+Conversion
+4
+9
+7
+14
+
+
+INPUT 3:
+=========
+
+Enter the limit.
+7
+enter decimal integers in array.
+123
+453
+33
+1
+10
+4
+5
+enter binarys integers in array.
+1000
+10000
+111
+1001
+101
+10001
+111111
+enter 1 for decimal to binary and 2 for binary to decimal
+1
+
+EXPECTED OUTPUT 3:
+===================
+
+Conversion
+1111011
+111000101
+100001
+1
+1010
+100
+101
+
+
+======================================================================================================================================================================
+
+
+CODING:
+========
+
+
+
+import java.util.*;
+class change
+{
+long dec[],bin[];  // public variables
+int n;                // public variable
+Scanner sc=new Scanner(System.in);
+void getlimit()   // this function will get the size of array
+{
+System.out.println("Enter the limit.");
+n=sc.nextInt();
+dec=new long[n];
+bin=new long[n];
+}
+void inputdecimals()  // this function will take decimal inputs
+{
+System.out.println("enter decimal integers in array.");
+for(int i=0;i<n;i++)
+dec[i]=sc.nextInt();  //accepting decimal elements
+}
+void inputbinarys()  // this function will take binary inputs
+{
+System.out.println("enter binarys integers in array.");
+for(int i=0;i<n;i++)
+bin[i]=sc.nextInt();  //accepting binary elements
+}
+void decimal_to_binary()
+{
+System.out.println("Conversion");
+int index=0,j;
+for(int i=0;i<n;i++)  //looping
+{index=0;
+long b[]=new long[40];
+while(dec[i]>0)
+{
+b[index++]=dec[i]%2;  // converting it in binary
+dec[i]=dec[i]/2;
+}
+for(j=index-1;j>=0;j--)
+System.out.print(b[j]);
+System.out.println();
+}
+}
+void binary_to_decimal()
+{System.out.println("Conversion");
+int d=0,g=0,i;
+for(i=0;i<n;i++)
+{d=0;g=0;
+while(true)
+{
+if(bin[i]==0)
+break;
+else
+{
+long temp=bin[i]%10;  //converting it in decimal
+d+=temp*Math.pow(2,g);
+bin[i]=bin[i]/10;
+g++;
+}
+}
+System.out.println(d);
+}
+}
+public static void main(String[]args)
+{
+change ob=new change();
+ob.getlimit();
+ob.inputdecimals();
+ob.inputbinarys();
+Scanner sd=new Scanner(System.in);
+System.out.println("enter 1 for decimal to binary and 2 for binary to decimal");
+int choice=sd.nextInt();  // enter a choice 
+switch(choice)   // using switch case 
+{
+case 1:
+ob.decimal_to_binary();
+break;
+case 2:
+ob.binary_to_decimal();
+break;
+default :
+System.out.println("Invalid choice");}
+}
+}
+
+
+===================================================================================================================================================================
+
