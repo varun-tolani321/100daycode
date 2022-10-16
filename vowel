@@ -1,0 +1,91 @@
+
+DAY 13:
+=======
+
+CODING LANGUAGE:-
+==================
+
+JAVA 
+
+=====================================================================================================================================================================
+
+QUESTION 13:-
+==============
+
+WRITE A PROGRAM TO PRINT THE NUMBER WORD STARTING WITH AVOWEL OR ENDING WITH THE VOWEL.
+
+=====================================================================================================================================================================
+
+INPUT 1:
+=========
+Enter your sentence:
+My name is varun tolani.
+
+EXPECTED OUTPUT 1:
+===================
+Number of words beginning and ending with vowel=3
+NEW STRING:
+name is tolani My varun
+
+INPUT 2:
+=========
+Enter your sentence:
+i am a student of VIT bhopal.
+
+EXPECTED OUTPUT 2:
+===================
+Number of words beginning and ending with vowel=4
+NEW STRING:
+i am a of student VIT bhopal
+
+
+=====================================================================================================================================================================
+
+
+
+CODING:
+========
+
+
+
+import java.util.*;
+class vowel
+{
+public static void main(String[]args)
+{
+Scanner in=new Scanner(System.in);
+String s,w[],v="",nv="",str; //initialization
+char f,l;
+int i,count=0;
+System.out.println("Enter your sentence:");
+s=in.nextLine();  //accepting the sentence
+if(s.charAt(s.length()-1)=='?'||(s.charAt(s.length()-1)=='.')||(s.charAt(s.length()-1)=='!'))
+{
+w=s.split("[.?! ]+");  //using split function to convert sentence in an array.
+for(i=0;i<w.length;i++)   //looping
+{
+f=w[i].charAt(0);
+l=w[i].charAt(w[i].length()-1);
+if((f=='a'||f=='e'||f=='i'||f=='o'||f=='u'||f=='A'|f=='E'||f=='I'||f=='O'||f=='U')||(l=='a'||l=='e'||l=='i'||l=='o'||l=='u'||l=='A'|l=='E'||l=='I'||l=='O'||l=='U'))
+{
+count++;   //count is a counter variable
+v=v+w[i]+" ";       //containg  the string
+}
+else
+{
+nv=nv+w[i]+" ";
+}
+}
+str=v.trim()+" "+nv.trim();
+str=str.trim();                 // using trim function to eliminate spaces
+System.out.println("Number of words beginning and ending with vowel="+count);  //displaying the number of words
+System.out.println("NEW STRING:\n"+str);  //displaying new strig
+}
+else
+{
+System.out.println("INVALID INPUT");
+}
+}
+}
+
+======================================================================================================================================================================
