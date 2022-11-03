@@ -1,0 +1,143 @@
+
+DAY 14
+=======
+
+CODING LANGUAGE 
+================
+
+JAVA
+
+========================================================================================================================================
+
+QUESTION
+=========
+
+WRITE A PROGRAM TO COMBINE THE TWO ARRAY ELEMENTS INTO A SINGLE ARRAY AS WELL SORT IT.
+
+========================================================================================================================================
+
+
+INPUT:
+=======
+
+Values for 1st array:
+Enter Value:4 
+
+Enter Value:6 
+
+Enter Value:45
+
+Enter Value:456
+
+Enter Value:87
+
+Values for 2nd array:
+Enter Value:76
+
+Enter Value:890
+
+Enter Value:054
+
+Enter Value:567
+
+Enter Value:87654
+
+Enter Value:7986
+
+
+
+EXPECTED OUTPUT:
+=================
+
+Values of 1st array:
+ 4       6       45      87      456
+Values of 2nd array:
+ 54      76      567     890     7986    87654
+Values of 3rd array:
+ 4       6       45      54      76      87      456     567     890     7986    87654
+ 
+ 
+ 
+ 
+ ================================================================================================================================================
+ 
+ CODING:
+ ========
+ 
+ import java.io.*;
+class Combine
+{
+int com[], size;             //public variable
+BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+Combine(int nn)            //constructor
+{
+ size=nn;                   //initializing the size
+ com=new int[size];
+}
+void inputarray( )  throws Exception
+{
+int i;
+ for(i=0;i<size;i++)         //looping
+ {
+
+System.out.print("\nEnter Value:");
+  com[i]=Integer.parseInt(br.readLine());
+  }
+}
+void sort()                 //function to do sorting
+{
+int i,j,t;
+for(i=0;i< size-1;i++)        //looping
+{
+ for(j=i+1;j<size;j++)          //looping
+ {
+  if(com[i] >com[j])
+  {
+   t=com[i];
+   com[i]=com[j];               //swapping the numbers
+   com[j]=t;
+  }
+ }
+ }
+}
+void mix(Combine A, Combine B) //function to combine two arrays.
+{
+int i,x=0;
+for(i=0;i<A.size;i++)
+com[x++]=A.com[i];
+for(i=0;i<B.size;i++)
+com[x++]=B.com[i];
+}
+void display( )               //function to display the array
+{
+ for(int i=0;i<size;i++)
+System.out.print(" "+com[i]+"\t");
+}
+public static void main(String args[]) throws Exception
+{
+  Combine A,B,C;
+int s;
+  A=new Combine(5);   
+  B=new Combine(6);           //making objects
+  C=new Combine(11);
+System.out.print("\nValues for 1st array:");
+A.inputarray();
+System.out.print("\nValues for 2nd array:");
+B.inputarray();
+A.sort();
+B.sort();                           //calling the functions
+C.mix(A,B);
+C.sort();
+System.out.println("\nValues of 1st array:");
+A.display();
+System.out.println();
+System.out.println("Values of 2nd array:");
+B.display();
+System.out.println();
+System.out.println("Values of 3rd array:");
+C.display();
+ }
+}
+
+
+=================================================================================================================================================
