@@ -1,0 +1,101 @@
+
+DAY 15  #100DAYSOFCODECHALLENGE
+================================
+
+CODING LANGUAGE:
+=================
+
+JAVA
+
+========================================================================================================================================================
+
+Question:
+==========
+
+TAKE THE INPUT FROM THE USER AND THEN TAKE ANOTHER INPUT FROM THE USER TO PRINT THE SUM OF TIMES OF BOTH TAKE IN HOURS AND MINUTES.
+
+========================================================================================================================================================
+
+INPUT:
+======
+Enter hours
+34
+Enter minutes
+345
+
+EXPECTED OUTPUT:
+=================
+34 hours        345 minutes
+
+AGAIN INPUT:
+=============
+
+Enter hours
+54
+Enter minutes
+432
+
+AGAIN EXPECTED FINAL OUTPUT:
+=============================
+
+54 hours        432 minutes
+Sum of the time=89 hours  717 minutes
+
+
+
+========================================================================================================================================================
+
+
+CODING:
+========
+
+
+import java.util.*;
+class time
+{
+int hrs,min;  // public variables 
+Scanner sc=new Scanner(System.in);
+time()  //constructor
+{
+hrs=0;  //initialization
+min=0;
+}
+void readtime() //function to take input
+{
+System.out.println("Enter hours");
+hrs=sc.nextInt(); // accepting hours from user
+System.out.println("Enter minutes");
+min=sc.nextInt();  // accepting minutes from user
+}
+void printtime()  // function to print time properly
+{
+System.out.println(hrs+" hours\t"+min+" minutes");
+}
+time sumtime(time A) //function to take out the sum of two times
+{
+time B=new time();
+B.hrs=hrs+A.hrs;
+B.min=min+A.min;          //addings hrs and minutes
+if(B.min>60)
+{
+B.min=B.min-60;
+B.hrs=B.hrs+1;
+}
+return B;                   //returning result in main function
+}
+public static void main(String[]args)
+{                                  //  main function
+time A=new time();
+time B=new time();
+time C=new time();
+A.readtime();
+A.printtime();
+B.readtime();                     //calling fuctions
+B.printtime();
+C=A.sumtime(B);
+System.out.println("Sum of the time="+C.hrs+" hours  "+C.min+" minutes");
+}
+}
+
+
+========================================================================================================================================================
