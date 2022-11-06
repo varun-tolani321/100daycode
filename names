@@ -1,0 +1,177 @@
+
+DAY 17
+=======
+
+CODE LANGUAGE:
+===============
+
+JAVA
+
+====================================================================================================================================================
+
+
+INPUT:
+======
+Enter number of participants.
+3
+Enter teams
+Team1
+1
+Team2
+2
+Team3
+3
+
+OUTPUT:
+========
+1       2       3
+
+
+
+
+
+
+INPUT:
+=======
+Enter number of participants.
+4
+Enter teams
+Team1
+VARUN
+Team2
+SAGAR
+Team3
+SANJAY
+Team4
+SANGEETA
+
+OUTPUT:
+========
+V       S       S       S
+A       A       A       A
+R       G       N       N
+U       A       J       G
+N       R       A       E
+                Y       E
+                        T
+                        A
+
+
+
+
+
+
+INPUT:
+=======
+Enter number of participants.
+2
+
+OUTPUT:
+========
+INVALID INPUT
+
+
+
+
+
+
+INPUT:
+=======
+Enter number of participants.
+9
+
+OUTPUT:
+========
+INVALID INPUT
+
+
+
+
+
+
+
+
+INPUT:
+=======
+
+Enter number of participants.
+3
+Enter teams
+Team1
+ITS1
+Team2
+ITS2
+Team3
+ITS3
+
+OUTPUT:
+========
+I       I       I
+T       T       T
+S       S       S
+1       2       3
+
+
+
+
+======================================================================================================================================================
+
+
+CODE:
+======
+
+
+
+import java.util.*;
+class names
+{
+public static void main(String[]args)
+{
+Scanner sc=new Scanner(System.in);
+System.out.println("Enter number of participants.");
+int n=sc.nextInt();   //accepting number of participants
+if(n>2&&n<9)
+{
+int i=0,len=0,max=0,j;  //initialization
+char ch;
+String team[];
+int length[]=new int[n];
+System.out.println("Enter teams");
+String g=sc.nextLine();
+team=new String[n];
+for(i=0;i<n;i++)
+{System.out.println("Team"+(i+1));
+team[i]=sc.nextLine();        // accepting teams 
+}
+team[0]+=g;
+for(i=0;i<n;i++)
+{len=team[i].length();
+length[i]=len;
+}
+for(i=0;i<n;i++)                  //looping to take out max length team.
+{
+if(length[i]>max)         //condition
+max=length[i];                  // taking out max length team
+}
+for(i=0;i<max;i++)        //looping
+{
+for(j=0;j<n;j++)           //looping
+{
+if(length[j]!=0)
+{
+ch=team[j].charAt(i);
+System.out.print(ch+"\t");          //printing the characters 
+length[j]--;
+}
+else
+System.out.print(" \t");
+}
+System.out.println();
+}
+}
+else
+System.out.println("INVALID INPUT");
+}
+}
+
+================================================================================================================================================
