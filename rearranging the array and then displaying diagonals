@@ -1,0 +1,252 @@
+
+DAY 18
+=======
+
+
+CODE LANGUAGE:
+===============
+
+JAVA
+
+=====================================================================================================================================================
+
+
+INPUT:
+======
+
+Enter size of matrix
+4
+enter digits
+2
+3
+4
+7
+5
+6
+89
+98
+65
+123
+345
+678
+66
+55
+44
+33
+
+OUTPUT:
+========
+
+Original Matrix
+2       3       4       7
+5       6       89      98
+65      123     345     678
+66      55      44      33
+
+Rearranged Matrix 
+2       3       4       7
+5       6       89      98
+65      123     345     678
+66      55      44      33
+Diagonal Elements
+2                       7
+        6       89
+        123     345
+66                      33
+Sum=671
+
+=====================================
+
+
+INPUT:
+=======
+
+Enter size of matrix
+3
+
+OUTPUT:
+========
+
+THE MATRIX SIZE IS OUT OF RANGE
+
+======================================
+
+
+INPUT:
+======
+
+Enter size of matrix
+10
+
+OUTPUT:
+========
+
+THE MATRIX SIZE IS OUT OF RANGE
+
+=========================================
+
+
+INPUT:
+=======
+
+Enter size of matrix
+6
+enter digits
+56
+55
+45
+909
+121
+3
+456
+55
+876
+543
+21
+980
+77
+66
+554
+1234
+981
+59
+39
+3456
+129
+873
+222
+111
+333
+444
+555
+666
+777
+888
+999
+119
+229
+334
+332
+331
+
+
+OUTPUT:
+=======
+
+Original Matrix
+56      55      45      909     121     3
+456     55      876     543     21      980
+77      66      554     1234    981     59
+39      3456    129     873     222     111
+333     444     555     666     777     888
+999     119     229     334     332     331
+
+Rearranged Matrix 
+56      55      45      909     121     3
+456     21      55      66      129     980
+77      222     444     543     554     59
+39      555     666     777     873     111
+333     876     981     1234    3456    888
+999     119     229     334     332     331
+Diagonal Elements
+56                                      3
+        21                      129
+                444     543
+                666     777
+        876                     3456
+999                                     331
+Sum=8301
+
+
+
+=====================================================================================================================================================
+
+
+
+CODE:
+======
+
+
+
+import java.util.*;
+class rearrangematrix
+{
+public static void main(String[]args)
+{
+Scanner Sc =new Scanner (System.in);
+System.out.println("Enter size of matrix");
+int m =Sc. nextInt();  //accepting the size of matrix
+if(m>3&&m<10)
+{
+int a[][]=new int [m][m]; // initilizing arrary
+System.out.println("enter digits");int b[]=new int[(m*m)];
+int i,j,k,h,t=0,p=0,z=0;
+for(i=0;i<m;i++)  //looping
+{
+for(j=0;j<m;j++)
+{
+a[i][j] =Sc.nextInt();  // accepting array elements
+}
+}
+System.out.println("Original Matrix");
+for(i=0;i<m;i++)
+{
+for(j=0;j<m;j++)
+{
+System.out.print(a[i][j]+"\t");}  // displaying original matrix
+System.out.println();}
+System.out.println();
+for(i=0;i<m;i++)                     //looping
+{
+for(j=0;j<m;j++)
+{
+if(i==0||j==0||i==(m-1)||j==(m-1))    // condition
+System.out.print("");
+else
+{b[p]=a[i][j];p++;}
+}
+}
+for(k=0;k<p;k++)
+{
+for(h=0;h<p-k-1;h++)              //looping
+{
+if(b[h]>b[h+1])
+{
+t=b[h];
+b[h]=b[h+1];   //swapping the array elements
+b[h+1]=t;}
+}
+}
+p=0;
+System.out.println("Rearranged Matrix ");
+for(i=0;i<m;i++)
+{for(j=0;j<m;j++)
+{
+if(i==0||j==0||i==(m-1)||j==(m-1))
+System.out.print(a[i][j]+"\t");
+else
+{a[i][j]=b[p];p++;
+System.out.print(a[i][j]+"\t");
+}
+}
+System.out.println();
+}
+System.out.println("Diagonal Elements");
+for(i=0;i<m;i++)
+{
+for(j=0;j<m;j++)
+{
+if(i==j||(i+j)==m-1)
+{System.out.print(a[i][j]+"\t");z+=a[i][j];}  // taking out diagonal elements
+else
+{System.out.print("\t");}
+}
+System.out.println();
+}System.out.println("Sum="+z);   // displaying the sum
+}
+else
+System.out.println("THE MATRIX SIZE IS OUT OF RANGE");
+}
+}
+
+====================================================================================================================================================
