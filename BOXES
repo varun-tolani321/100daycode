@@ -1,0 +1,139 @@
+
+DAY 19 
+=======
+
+CODING LANGUAGE:
+=================
+
+JAVA
+
+====================================================================================================================================================
+
+
+INPUT:
+=======
+
+Enter number of boxes to be packed
+91
+
+
+OUTPUT:
+========
+
+48*1=48
+24*1=24
+12*1=12
+6*1=6
+Remaining Boxes=1*1=1
+Total Number Of Boxes=91
+Total Number Of Cartoons=5
+
+
+
+
+
+
+INPUT:
+=======
+
+Enter number of boxes to be packed
+56
+
+
+OUTPUT:
+========
+
+48*1=48
+6*1=6
+Remaining Boxes=2*1=2
+Total Number Of Boxes=56
+Total Number Of Cartoons=3
+
+
+
+
+
+
+INPUT:
+=======
+
+Enter number of boxes to be packed
+60
+
+OUTPUT:
+========
+
+48*1=48
+12*1=12
+Remaining Boxes=0
+Total Number Of Boxes=60
+Total Number Of Cartoons=2
+
+
+
+
+
+INPUT:
+======
+
+Enter number of boxes to be packed
+1001
+
+OUTPUT:
+========
+
+Invalid Input
+
+
+====================================================================================================================================================
+
+
+CODING:
+========
+
+import java.util.*;
+class boxes
+{
+public static void main(String[]args)
+{Scanner sc=new Scanner(System.in);
+System.out.println("Enter number of boxes to be packed");
+int n=sc.nextInt();  // acceptingnumber of boxes to be packed
+int a[]={6,12,24,48};
+int i,d=0,f=0,m=n,c=0;  //initialization
+if(n<=1000)             // condition to check validity
+{
+while(n>0)                //looping
+{
+for(i=3;i>=0;i--)             //looping
+{
+f=n/a[i];
+d=n%a[i];                     // digit extraction
+if(d!=n)
+{System.out.println(a[i]+"*"+f+"="+(a[i]*f));
+c+=f;                  // c is a counter variable it counts cartoons
+n=d;}
+}
+if(n<a[0])
+break;
+}
+if(n>0)                             // condition to take out exact number of cartoons
+{System.out.println("Remaining Boxes="+n+"*"+"1="+n);  // displaying remaining boxes 
+System.out.println("Total Number Of Boxes="+m);
+System.out.println("Total Number Of Cartoons="+(c+1));
+}
+else
+{
+System.out.println("Remaining Boxes="+n);
+System.out.println("Total Number Of Boxes="+m);
+System.out.println("Total Number Of Cartoons="+c);
+}
+}
+else
+{
+System.out.println("Invalid Input");
+}
+}
+}
+
+
+====================================================================================================================================================
