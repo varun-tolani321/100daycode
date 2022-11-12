@@ -1,0 +1,81 @@
+DAY 23
+=======
+
+Coding language :
+==================
+
+JAVA
+
+====================================================================================================================================================
+
+
+INPUT:
+=======
+
+Enter a no.
+1
+Enter a no.
+111
+
+OUTPUT:
+========
+
+Composite magic no.
+10
+28
+46
+55
+64
+82
+91
+100
+
+
+====================================================================================================================================================
+
+
+
+CODE:
+======
+
+
+import java.util.*;
+public class compositemagic
+{
+public static void main(String []args)
+{
+Scanner sc=new Scanner(System.in);
+System.out.println("Enter a no.");
+int m=sc.nextInt();
+System.out.println("Enter a no.");
+int n=sc.nextInt();
+int i,j,c=0,k=0,d=0,s=0;
+System.out.println("Composite magic no.");
+for(i=m;i<=n;i++)                       //looping
+{k=i;s=0;c=0;
+for(j=1;j<=i;j++)                        //looping
+{
+if(i%j==0)                               //Cheaking
+c++;                                     //c is a counter variable
+}  
+if(c>2)                                  //condition
+{
+while(k>9)                               //looping
+{
+while(k>0)                               //looping
+{
+d=k%10;                                  //digit extraction
+s+=d;                                    //sum of digits of a no.
+k/=10;
+}
+k=s;
+s=0;
+}
+if(k==1)                         //to cheak that a no. is composite magic no. or not
+System.out.println(i);
+}
+}
+}
+}
+
+===================================================================================================================================================
