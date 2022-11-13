@@ -1,0 +1,79 @@
+DAY 24
+=======
+
+CODING LANGUAGE :
+==================
+
+JAVA
+
+==============================================================================================================================
+
+INPUT:
+=======
+Enter a no.
+666
+
+EXPECTED OUTPUT:
+=================
+yes it is smith no.
+
+
+
+INPUT:
+=======
+Enter a no.
+343
+
+EXPECTED OUTPUT:
+=================
+no not a smith no.
+
+
+
+===============================================================================================================================
+
+
+CODE:
+======
+
+
+import java.util.*;
+class smith
+{
+public static void main(String[]args)
+{
+Scanner sc=new Scanner(System.in);
+System.out.println("Enter a no.");
+int s=sc.nextInt();
+int r=s,i=2,d=0,di=0,s1=0,s2=0,k=0,f=1;
+while(s>0)                              //looping
+{
+d=s%10;                                 //Digit Extraction
+s1+=d;                                  //sum of digits of a no.
+s/=10;
+}
+s=r;
+while(i<=s)                       //looping
+{
+if(r%i==0)                             //condition
+{k=i;
+f*=i;
+while(k>0)                               //looping
+{
+di=k%10;                              //Digit Extraction
+s2+=di;                                //sum of digits of a no.
+k/=10;
+}
+r/=i;
+}
+else
+i++;
+}
+if(s1==s2)                            //checking,is the no. smith no. or not
+System.out.println("yes it is smith no.");  //printing smith no.
+else
+System.out.println("no not a smith no.");
+} 
+}
+
+===============================================================================================================================================
