@@ -1,0 +1,115 @@
+DAY 25
+=======
+
+CODING LANGUAGE :
+==================
+
+JAVA
+
+==========================================================================================================================================
+
+QUESTION :
+
+WRITE A PROGRAM TO CHECK WHETHER THE ENTERED NUMBER IS AN EVIL NUMBER OR NOT,PRINT OUT OF RANGE IF THE NUMBER GO OUT OF THE RANGE.
+
+==========================================================================================================================================
+
+INPUT:
+=======
+
+Enter a no.
+234
+
+Expected output :
+===================
+
+Number Out Of Range
+
+================================================================
+
+INPUT:
+======
+Enter a no.
+99 
+
+Expected OUTPUT:
+=========
+Binary Equivalent:1100011
+Number Of 1's:4
+Evil no.
+
+====================================================================
+
+INPUT:
+========
+Enter a no.
+4
+
+Expected output :
+===================
+Binary Equivalent:100
+Number Of 1's:1
+Not an Evil no.
+
+
+==========================================================================================================================================
+
+
+CODE:-
+========
+
+
+import java.util.*;
+class g
+{
+public static void main(String[]args)
+{
+Scanner sc=new Scanner(System.in);
+System.out.println("Enter a no.");
+int n=sc.nextInt();
+int s=0,d=0,c=0,i,f=n,rev=0,m=0;
+if(n>2&&n<100)
+{
+while(n>0)
+{
+if(n%2==0)
+m++;
+n/=2;
+if(n%2==1)
+break;
+}
+n=f;
+while(n>0)
+{d=n%2;
+s=(s*10)+d;
+n/=2;
+}f=s;
+while(f>0)
+{
+d=f%10;
+rev=rev*10+d;
+f/=10;
+}
+for(i=1;i<=m;i++)
+rev*=10;
+System.out.println("Binary Equivalent:"+rev);
+while(s>0)
+{
+d=s%10;
+if(d==1)
+c++;
+s/=10;}
+System.out.println("Number Of 1's:"+c);
+if(c%2==0)
+System.out.println("Evil no.");
+else
+System.out.println("Not an Evil no.");
+}
+else
+{
+System.out.println("Number Out Of Range");
+}
+}
+}
+
+===================================================================================================================================================
