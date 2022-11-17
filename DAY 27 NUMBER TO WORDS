@@ -1,0 +1,108 @@
+DAY 27:
+=========
+
+
+CODING LANGUAGE:
+=================
+
+JAVA
+
+===============================================================================================================================================
+
+INPUT:
+=======
+
+Enter the no.
+456
+
+OUTPUT:
+=========
+
+  Four Hundred Fifty Six
+ 
+ ======================================
+ 
+ INPUT:
+ =======
+ 
+ Enter the no.
+6783
+
+OUTPUT:
+========
+
+  Six Thousand Seven Hundred Eighty Three
+  
+  =================================================
+  
+  INPUT:
+  =======
+  
+  Enter the no.
+9999
+
+OUTPUT:
+=========
+
+  Nine Thousand Nine Hundred Ninety Nine
+ 
+ =======================================================
+ 
+ INPUT:
+ =======
+ 
+ Enter the no.
+10000
+
+OUTPUT:
+========
+
+Out of range
+ 
+===============================================================================================================================================
+
+
+CODE:
+======
+
+
+import java.util.*;
+class l
+{
+public static void main(String[]args)
+{
+String x[]={" ","One","Two","Three","Four","Five","Six","Seven","Eight","Nine"};
+String z[]={" ","Eleven","Twelve","Fourteen","Fifteen","Sixteen","Seventeen","Eighteen","Nineteen"};
+String y[]={" ","Ten","Twenty","Thirty","Fourty","Fifty","Sixty","Seventy","Eighty","Ninety"};
+int n,t,i;
+Scanner sc=new Scanner(System.in);
+System.out.println("Enter the no.");
+n=sc.nextInt();
+if(n>9999)
+{
+System.out.println("Out of range");
+return ;
+}
+int a[]=new int[4];
+t=n;
+for(i=3;i>=0;i--)
+{
+a[i]=t%10;
+t/=10;
+}
+String r=" ";
+if(n==0)
+r="Zero";
+if(a[0]!=0)
+r=r+" "+x[a[0]]+" "+"Thousand";
+if(a[1]!=0)
+r=r+" "+x[a[1]]+" "+"Hundred";
+if(a[2]==1&&a[3]!=0)
+r+=" "+z[a[3]];
+else
+r+=" "+y[a[2]]+" "+x[a[3]];
+System.out.println(r);
+}
+}
+
+=================================================================================================================================================
