@@ -1,0 +1,92 @@
+DAY 28
+=======
+
+
+CODING LANGUAGE:
+==================
+
+JAVA
+
+====================================================================================================================================================
+
+INPUT:
+========
+Enter a number
+1124
+
+OUTPUT:
+========
+Its a Spy number
+
+=========================================
+
+INPUT:
+=======
+Enter a number
+123
+
+OUTPUT:
+=========
+Its a Spy number
+
+=========================================
+
+INPUT:
+=======
+Enter a number
+22
+
+OUTPUT:
+========
+Its a Spy number
+
+==========================================
+
+INPUT:
+========
+Enter a number
+74
+
+OUTPUT:
+=========
+no its not a Spy number
+
+==========================================
+
+INPUT:
+=======
+Enter a number
+25
+
+OUTPUT:
+=========
+no its not a Spy number
+
+===================================================================================================================================================
+
+CODE:
+======
+
+import java.util.*;
+public class Spy{
+public static void main(String []args)
+{
+    Scanner sc=new Scanner(System.in);
+    System.out.println("Enter a number");
+    int n=sc.nextInt();
+    int sum=0,i=n,d=0,product=1;
+while (i>0)
+{
+d=i%10;
+product*=d;
+sum=sum+d;
+i/=10;
+}
+if(sum==product)
+System.out.println("Its a Spy number");
+else
+System.out.println("no its not a Spy number");
+}
+}
+
+====================================================================================================================================================
