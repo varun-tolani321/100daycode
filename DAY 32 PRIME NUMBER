@@ -1,0 +1,73 @@
+DAY 32
+=======
+
+CODING LANGUAGE:
+==================
+
+JAVA
+
+===================================
+
+QUESTION:
+==========
+
+WRITE A PROGRAM TO PRINT THE PRIME NUMBERS TILL THE RANGE.
+
+==============================================================================================================================================
+
+INPUT:
+=======
+
+enter the range
+20
+
+
+OUTPUT:
+========
+
+3
+5
+7
+11
+13
+17
+19
+
+==============================================================================================================================================
+
+CODE:
+======
+
+import java .util.*;
+class prime
+{
+int check(int n)
+{
+int c=0,i;
+for(i=1;i<=n;i++)
+{
+if(n%i==0)
+c++;
+}
+if(c==2&&n!=2)
+return 1;
+else
+return 0;
+}
+public static void main(String [] args)
+{
+Scanner sc=new Scanner(System.in);
+System.out.println("enter the range");
+int n=sc.nextInt();
+prime ob=new prime();
+int i,d;
+for(i=1;i<=n;i++)
+{
+d=ob.check(i);
+if(d==1)
+System.out.println(i);
+}
+}
+}
+
+==============================================================================================================================================
