@@ -1,0 +1,87 @@
+DAY 36
+=======
+
+
+CODING LANGUAGE:
+==================
+
+JAVA
+
+====================================================================================
+
+QUESTION:
+===========
+
+WRITE A PROGRAM TO ENTER ROW NUMBER AND PRINT THE PYRAMID OF ENTERED ROW.
+
+==================================================================================================================================================
+
+
+INPUT:
+=======
+
+Enter row to be printed
+5
+
+OUTPUT:
+========
+    A
+   ABC
+  ABCDE
+ ABCDEFG
+ABCDEFGHI
+
+
+==================================================
+
+
+INPUT;
+=======
+
+Enter row to be printed
+8
+
+OUTPUT:
+=========
+
+       A
+      ABC
+     ABCDE
+    ABCDEFG
+   ABCDEFGHI
+  ABCDEFGHIJK
+ ABCDEFGHIJKLM
+ 
+ 
+ ==================================================================================================================================================
+
+
+
+CODE:
+======
+
+import java.util.*;
+class Pattern4
+{
+public static void main(String[]args)
+{
+   Scanner sc=new Scanner(System.in);
+   System.out.println("Enter row to be printed");
+   int n=sc.nextInt();
+    char s='A';
+int i,j,d=1,k;
+for(i=1;i<=n;i++)
+{
+for(j=n;j>i;j--)
+{
+System.out.print(" ");
+}
+for(k=1;k<=d;k++)
+{System.out.print(s);s++;
+}d+=2;s='A';
+System.out.println();
+}
+}
+}
+
+=======================================================================================================================================================
