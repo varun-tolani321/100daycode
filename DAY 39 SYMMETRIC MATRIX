@@ -1,0 +1,135 @@
+
+DAY 39
+=======
+
+
+CODING LANGUAGE:
+=================
+
+JAVA
+
+=========================================================
+
+QUESTION:
+==========
+
+WRITE A PROGRAM TO ENTER THE ARRAY ELEMENTS AND THEN PRINT WHETHER THE ENTERED MATRIX IS SYMMETRIC OR NOT.
+
+================================================================================================================================================
+
+INPUT:
+=======
+
+Enter size of matrix
+3
+enter digits
+1
+1
+-1
+1
+2
+0
+-1
+0
+5
+
+OUTPUT:
+========
+
+original matrix
+1       1       -1
+1       2       0
+-1      0       5
+symmetric matrix
+
+
+==========================================================
+
+INPUT:
+=======
+
+Enter size of matrix
+4
+enter digits
+12
+23
+34
+45
+56
+67
+78
+89
+90
+09
+87
+76
+65
+54
+43
+32
+
+OUTPUT:
+========
+
+original matrix
+12      23      34      45
+56      67      78      89
+90      9       87      76
+65      54      43      32
+not a symmetric matrix
+
+================================================================================================================================================
+
+
+CODE:
+======
+
+
+import java.util.*;
+class r
+{
+public static void main(String[]args)
+{
+Scanner Sc =new Scanner (System.in);
+System.out.println("Enter size of matrix");
+int m =Sc. nextInt();int a[][]=new int [m][m];
+System.out.println("enter digits");
+int i,j,c=0,d=0; int b[][]=new int[m][m];
+for(i=0;i<m;i++)
+{
+for(j=0;j<m;j++)
+{
+a[i][j] =Sc.nextInt();
+}
+}System.out.println("original matrix");
+for(i=0;i<m;i++)
+{
+for(j=0;j<m;j++)
+{
+System.out.print(a[i][j]+"\t");}
+System.out.println();}
+for(i=0;i<m;i++)
+{
+for(j=0;j<m;j++)
+{
+b[i][j]= a[j][i];
+}
+}
+for(i=0;i<m;i++)
+{
+for(j=0;j<m;j++)
+{
+ if(a[i][j]==b[i][j])
+{c++;}
+else
+{d++;}
+}
+}
+if(d!=0)
+System.out.println("not a symmetric matrix");
+else
+System.out.println("symmetric matrix");
+}
+}
+
+================================================================================================================================================
