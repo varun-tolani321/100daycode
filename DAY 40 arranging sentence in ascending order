@@ -1,0 +1,89 @@
+
+DAY 40
+========
+
+
+CODING LANGUAGE:
+===================
+
+JAVA
+
+===================================================================================================================================================
+
+
+QUESTION:
+===========
+
+WRITE A PROGRAM TO PRINT A SENTENCE IN ASCENDING ORDER AND ALSO PRINT THE LENGTH OF THE SENTENCE.
+
+====================================================================================================================================================
+
+INPUT:
+=======
+Enter the sentence:
+varun is a good boy.
+
+OUTPUT:
+========
+The length of the sentence:19
+a boy good is varun 
+
+=======================================================
+
+INPUT:
+========
+Enter the sentence:
+I AM A STUDENT OF VIT,BHOPAL.
+
+OUTPUT:
+=========
+The length of the sentence:28
+A AM I OF STUDENT VIT,BHOPAL
+
+====================================================================================================================================================
+
+
+CODE:
+======
+
+
+
+import java.util.*;
+class j
+{
+public static void main(String[]args)
+{
+Scanner sc=new Scanner(System.in);
+System.out.println("Enter the sentence:");
+String str=sc.nextLine();
+String st=str.substring(0,str.length()-1);
+StringTokenizer a=new StringTokenizer(st);
+String A[]=new String[st.length()];
+int c=0;
+String temp;
+while(a.hasMoreTokens())
+{
+A[c]=a.nextToken();
+c++;
+}
+System.out.println("The length of the sentence:"+A.length);
+for(int i=0;i<c;i++)
+{
+for(int j=0;j<c-i-1;j++)
+{
+if(A[j+1].compareTo(A[j])<0)
+{
+temp=A[j];
+A[j]=A[j+1];
+A[j+1]=temp;
+}
+}
+}
+for(int i=0;i<c;i++)
+{
+System.out.print(A[i]+" ");
+}
+}
+}
+
+====================================================================================================================================================
