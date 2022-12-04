@@ -1,0 +1,101 @@
+DAY 41
+
+
+
+CODING LANGUAGE:
+=================
+
+JAVA
+
+===========================================================
+
+QUESTION:
+==========
+
+WRITE A PROGRAM TO ENTER A MATRIX SIZE AS WELL AS THE MATRIX ELEMENTS THEN PRINT ITS MIRROR MATRIX.
+
+
+=======================================================================================================================================================
+
+
+INPUT:
+========
+
+Enter size of matrix
+4
+enter digits
+23
+34
+56
+6755
+4
+33
+2
+34
+4
+5
+6
+5544
+4
+3
+3
+3
+
+OUTPUT:
+========
+
+original matrix
+23      34      56      6755
+4       33      2       34
+4       5       6       5544
+4       3       3       3
+mirror matrix
+6755    56      34      23
+34      2       33      4
+5544    6       5       4
+3       3       3       4
+
+=======================================================================================================================================================
+
+CODE:
+======
+
+import java.util.*;
+class q
+{
+public static void main(String[]args)
+{
+Scanner Sc =new Scanner (System.in);
+System.out.println("Enter size of matrix");
+int m =Sc. nextInt();int a[][]=new int [m][m];
+System.out.println("enter digits");
+int i,j;
+for(i=0;i<m;i++)
+{
+for(j=0;j<m;j++)
+{
+a[i][j] =Sc.nextInt();
+}
+}
+System.out.println("original matrix");
+for(i=0;i<m;i++)
+{
+for(j=0;j<m;j++)
+{
+System.out.print(a[i][j]+"\t");
+}
+System.out.println();
+}
+System.out.println("mirror matrix");
+for(i=0;i<m;i++)
+{
+for(j=(m-1);j>=0;j--)
+{
+System.out.print(a[i][j]+"\t");
+}
+System.out.println();
+}
+}
+}
+
+=======================================================================================================================================================
