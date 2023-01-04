@@ -1,0 +1,133 @@
+DAY 52
+=======
+
+
+CODING LANGUAGE:
+==================
+
+JAVA
+
+========================================
+
+
+DESCRIPTION:
+=============
+
+A WINDOW WILL BE DISPLAYED WITH A CALCULATOR YOU CAN DO ADDITION,SUBSTRACTION,MULTIPLICATION AND DIVISION.
+
+==================================================================================================================================================
+
+
+CODE:
+======
+
+// Name : Aditya Nair Reg No.: 22MCA10179
+// Name : Priyanshu Saraswat Reg No.: 22MCA10155
+// Name : Ayush Nigam Reg No.: 22MCA10004
+// Name : Glady S. Thomas Reg No.: 22MCA10102
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class Calculator extends JFrame implements ActionListener {
+
+    static JFrame frame = new JFrame("Calculator");
+    static JPanel panel = new JPanel();
+    static JLabel label = new JLabel("Calculator");
+    static JButton buttonAdd = new JButton("+");
+    static JButton buttonSubtract = new JButton("-");
+    static JButton buttonMultiply = new JButton("*");
+    static JButton buttonDivide = new JButton("/");
+    static JTextField input1 = new JTextField(15);
+    static JTextField input2 = new JTextField(15);
+    static JTextField output = new JTextField(15);
+
+    public static void main(String[] args) {
+
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setPreferredSize(new Dimension(400, 500));
+        frame.pack();
+        frame.setVisible(true);
+
+        Calculator calc = new Calculator();
+
+        buttonAdd.addActionListener(calc);
+        buttonSubtract.addActionListener(calc);
+        buttonMultiply.addActionListener(calc);
+        buttonDivide.addActionListener(calc);
+
+        output.setEditable(false);
+
+        frame.add(panel);
+        panel.add(label);
+        panel.add(input1);
+        panel.add(input2);
+        panel.add(output);
+        panel.add(buttonAdd);
+        panel.add(buttonSubtract);
+        panel.add(buttonMultiply);
+        panel.add(buttonDivide);
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        String s = e.getActionCommand();
+        int x;
+        int y;
+        int c;
+        if (s.equals("+")) {
+
+            String a = input1.getText();
+            String b = input2.getText();
+            x = Integer.parseInt(a);
+            y = Integer.parseInt(b);
+            c = x + y;
+            String d = Integer.toString(c);
+            label.setText("Addition");
+            output.setText(d);
+            input1.setText(a);
+            input2.setText(b);
+        }
+        if (s.equals("-")) {
+
+            String a = input1.getText();
+            String b = input2.getText();
+            x = Integer.parseInt(a);
+            y = Integer.parseInt(b);
+            c = x - y;
+            String d = Integer.toString(c);
+            label.setText("Subtraction");
+            output.setText(d);
+            input1.setText(a);
+            input2.setText(b);
+        }
+        if (s.equals("*")) {
+
+            String a = input1.getText();
+            String b = input2.getText();
+            x = Integer.parseInt(a);
+            y = Integer.parseInt(b);
+            c = x * y;
+            String d = Integer.toString(c);
+            label.setText("Multiplication");
+            output.setText(d);
+            input1.setText(a);
+            input2.setText(b);
+        }
+        if (s.equals("/")) {
+
+            String a = input1.getText();
+            String b = input2.getText();
+            x = Integer.parseInt(a);
+            y = Integer.parseInt(b);
+            c = x / y;
+            String d = Integer.toString(c);
+            label.setText("Division");
+            output.setText(d);
+            input1.setText(a);
+            input2.setText(b);
+        }
+    }
+}
+
+==========================================================================================================================================
