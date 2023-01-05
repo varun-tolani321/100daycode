@@ -1,0 +1,79 @@
+DAY 53
+========
+
+CODING LANGUAGE:
+==================
+
+JAVA
+
+=================================================
+
+
+DESCRIPTION OF THE OUTPUT:
+============================
+
+A WINDOW WILL APPER IN WHICH YOU HAVE TO ENTER A NAME AND THE CITY WHERE THAT PERSON LIVE THAN IT WILL SHOW BOTH NAME AND THE CITY TOGETHER 
+ON THE WINDOW.
+
+===============================================================================================================================================
+
+CODE:
+=======
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+class Swing1 implements ActionListener
+{
+	static JTextField name;
+	static JTextField city; 
+	static JButton submit;
+	static JTextField text;
+        
+	public static void main(String args[])
+	{
+	
+		JFrame frame=new JFrame("City");
+		frame.setSize(400,400);
+		frame.setLayout(null);
+		frame.setBackground(Color.white);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		JLabel l_name=new JLabel("Name :");
+		JLabel l_city=new JLabel("City :");
+		l_name.setBounds(50,50,50,50);
+		l_city.setBounds(20,100,80,50);
+		frame.add(l_name);
+		frame.add(l_city);
+	
+		name=new JTextField();
+		city=new JTextField();
+		name.setBounds(100,50,250,50);
+		city.setBounds(100,100,250,50);
+		frame.add(name);
+		frame.add(city);
+	
+		submit=new JButton("Submit");
+		submit.setBounds(150,200,100,50);
+		frame.add(submit);
+	
+		text=new JTextField();
+		text.setBounds(0,250,400,50);
+		frame.add(text);
+
+		Swing1 obj=new Swing1();
+
+		submit.addActionListener(obj);
+
+		frame.setVisible(true);
+	}
+      
+	public void actionPerformed(ActionEvent e)
+	{
+		String pass=String.valueOf(city.getText());
+		text.setText("Name : "+name.getText()); 
+		text.setText(text.getText()+" city : "+pass);
+	}
+}
+
+===========================================================================================================================================
