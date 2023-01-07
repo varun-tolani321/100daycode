@@ -1,0 +1,92 @@
+DAY 55
+
+
+CODING LANGUAGE:
+=================
+
+JAVA
+
+=================================
+
+INPUT 1:
+==========
+EAT
+ATE
+
+OUTPUT:
+=========
+Anagrams
+
+
+INPUT 2:
+==========
+VARUN
+NURAV
+
+OUTPUT:
+=========
+Anagrams
+
+
+INPUT 3:
+==========
+EAST   
+WEST 
+
+OUTPUT:
+=========
+Not Anagram
+
+
+============================================================================================================================================
+
+CODE:
+=======
+
+import java.util.*;
+public class Anagrams{
+    public static void main(String args[]){
+        Scanner sc = new Scanner(System.in);
+        String s1=sc.nextLine();
+        String s2=sc.nextLine();
+        int n1=s1.length();
+        int n2=s2.length();
+        if(n1==n2){
+            char temp;
+            char[] arrS1 = s1.toCharArray();   
+            char[] arrS2 = s2.toCharArray(); 
+            for(int i=0;i<n1;i++){
+                for(int j=1;j<n1-i;j++){
+                    if(arrS1[j-1]>arrS1[j]){
+                        temp=arrS1[j-1];
+                        arrS1[j-1]=arrS1[j];
+                        arrS1[j]=temp;
+                    }
+                    if(arrS2[j-1]>arrS2[j]){
+                        temp=arrS2[j-1];
+                        arrS2[j-1]=arrS2[j];
+                        arrS2[j]=temp;
+                    }
+                }
+            } 
+            int i;
+            for(i=0;i<n1;i++){
+                if(arrS1[i]!=arrS2[i]){
+                    break;
+                }
+            }
+            if(i==n1){
+                System.out.println("Anagrams");
+            }
+            else{
+                System.out.println("Not Anagram");
+            }
+        }
+        else{
+            System.out.println("Not Anagram");
+        }
+        sc.close(); 
+    }
+}
+
+============================================================================================================================================
