@@ -1,0 +1,52 @@
+DAY 61
+========
+
+
+CODING LANGUAGE:
+==================
+
+JAVA
+
+=============================================
+
+INPUT:
+=======
+
+Enter lower range
+10
+Enter upper range
+39
+
+OUTPUT:
+=========
+
+TOTAL NUMBER OF UNIQUE DIGITS NUMBER:-27
+
+===============================================================================================================================================
+
+
+CODE:
+======
+
+
+import java.util.*;
+public class Uniquenum {
+    public static void main(String[]args)
+    {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter lower range");
+        int n=sc.nextInt();
+        System.out.println("Enter upper range");
+        int m=sc.nextInt();
+        int i,c=0;
+        for(i=n;i<=m;i++)
+        {
+            if((i%10)!=(i/10))
+            c++;
+        }
+        System.out.println("TOTAL NUMBER OF UNIQUE DIGITS NUMBER:-"+c);
+    }    
+}
+
+
+===============================================================================================================================================
