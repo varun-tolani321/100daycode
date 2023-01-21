@@ -1,0 +1,59 @@
+DAY 69
+========
+
+
+CODING LANGUAGE:
+==================
+
+JAVA
+
+=================================================
+
+INPUT:
+========
+Enter number
+3
+Enter a number for AP series.
+4
+Enter a number for AP series.
+5
+
+OUTPUT:
+========
+4
+20
+100
+Sum of AP series= 124
+
+=========================================================================================================================================
+
+
+CODE:
+=======
+
+
+import java.util.*;
+class AP
+{
+    public static void main(String []args)
+    {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter number");
+        int n=sc.nextInt();
+        System.out.println("Enter a number for AP series.");
+        int a=sc.nextInt();
+        System.out.println("Enter a number for AP series.");
+        int r=sc.nextInt();
+        int k=0,d=0,sum=0;
+        for(int i=1;i<=n;i++)
+        {
+            d=a*(int)Math.pow(r,k);
+            System.out.println(d);
+            sum+=d;
+            k++;
+        }
+        System.out.println("Sum of AP series= "+sum);
+    }
+}
+
+=========================================================================================================================================
