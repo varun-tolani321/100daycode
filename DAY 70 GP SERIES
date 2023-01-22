@@ -1,0 +1,55 @@
+DAY 70
+========
+
+CODING LANGUAGE:
+==================
+
+JAVA
+
+===============================================
+
+INPUT:
+=======
+Enter number
+3
+Enter a number for GP series.
+2
+Enter a number for GP series.
+3
+
+OUTPUT:
+=========
+2
+5
+8
+Sum of GP series= 15
+
+=====================================================================================================================================
+CODE:
+======
+
+import java.util.*;
+class GP
+{
+    public static void main(String []args)
+    {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter number");
+        int n=sc.nextInt();
+        System.out.println("Enter a number for GP series.");
+        int a=sc.nextInt();
+        System.out.println("Enter a number for GP series.");
+        int r=sc.nextInt();
+        int k=0,d=0,sum=0;
+        for(int i=1;i<=n;i++)
+        {
+            d=a+(r*k);
+            System.out.println(d);
+            sum+=d;
+            k++;
+        }
+        System.out.println("Sum of GP series= "+sum);
+    }
+}
+
+=====================================================================================================================================
