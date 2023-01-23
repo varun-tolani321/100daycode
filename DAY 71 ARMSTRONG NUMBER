@@ -1,0 +1,63 @@
+DAY 71
+========
+
+CODING LANGUAGE:
+==================
+
+JAVA
+
+=================================
+
+INPUT 1:
+==========
+
+Enter a number to check whether it is armstrong number or not
+153
+
+OUTPUT:
+========
+
+It is an armstrong number.
+
+=======================================================================
+
+INPUT 2:
+=========
+
+Enter a number to check whether it is armstrong number or not
+154
+
+OUTPUT:
+========
+
+It is not an armstrong number.
+
+=================================================================================================================================
+
+
+CODE:
+======
+
+import java.util.*;
+class armstrong
+{
+    public static void main(String []args)
+    {
+        Scanner sc= new Scanner(System.in);
+        System.out.println("Enter a number to check whether it is armstrong number or not");
+        int n=sc.nextInt();
+        int m=n,s=0,dig=0;
+        while(m>0)
+        {
+            dig=m%10;
+            s+=(dig*dig*dig);
+            m/=10;
+        }
+        if(s==n)
+        System.out.println("It is an armstrong number.");
+        else
+        System.out.println("It is not an armstrong number.");
+    }
+}
+
+=================================================================================================================================
