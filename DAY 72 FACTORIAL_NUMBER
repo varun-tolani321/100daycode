@@ -1,0 +1,62 @@
+DAY 72
+========
+
+CODING LANGUAGE:
+==================
+
+JAVA
+
+============================================================================================
+
+INPUT 1:
+=========
+Enter a number to check whether he number is factorial number or not.
+189
+
+OUTPUT:
+==========
+it is not a FACTORIAL number.
+
+===============================================================================================
+
+INPUT 2:
+==========
+Enter a number to check whether he number is factorial number or not.
+145
+
+OUTPUT:
+===========
+it is a FACTORIAL number.
+
+===============================================================================================
+
+
+CODE:
+======
+
+import java.util.*;
+class factorial_number
+{
+    public static void main(String []args)
+    {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter a number to check whether he number is factorial number or not.");
+        int n=sc.nextInt();
+        int m=n,fac=1,dig=0,s=0;
+        while(m>0)
+        {
+            fac=1;
+            dig=m%10;
+            for(int i=1;i<=dig;i++)
+            fac*=i;
+            s+=fac;
+            m/=10;
+        }
+        if(s==n)
+        System.out.println("it is a FACTORIAL number.");
+        else
+        System.out.println("it is not a FACTORIAL number.");
+    }
+}
+
+=============================================================================================================================================
