@@ -1,0 +1,56 @@
+DAY 77
+=======
+
+
+CODING LANGUAGE:
+==================
+
+JAVA
+
+===================================================
+
+INPUT:
+========
+Enter a number.
+3215
+
+OUTPUT:
+=======
+2
+
+===========================================================================
+
+CODE:
+=====
+
+import java.util.*;
+import java.lang.*;
+class numerological_reduction
+{
+   
+    public static void main(String args[])
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a number.");
+        int n = sc.nextInt();
+        System.out.print(FindNumerologicalReduction(n));
+    }
+    static int FindNumerologicalReduction(int n)
+{
+    int d=n,sum=0,s=10,dig=0;
+    while(s>9)
+    {
+    while(d>0)
+    {
+        dig=d%10;
+        sum+=dig;
+        d/=10;
+    }s=sum;
+    d=sum;
+    sum=0;
+}
+return s;
+}
+}
+
+==========================================================================================================================================
