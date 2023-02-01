@@ -1,0 +1,49 @@
+DAY 80
+=======
+
+
+CODING LANGUAGE:
+==================
+
+JAVA
+
+===============================
+
+INPUT:
+========
+
+Enter a number
+8
+
+OUTPUT:
+=========
+
+0 1 1 2 3 5 8 13 
+
+===============================================================================================
+
+CODE:
+======
+
+import java.util.*;
+class fabonnaci
+{
+    public static void main(String []args)
+    {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter a number");
+        int n=sc.nextInt();
+        int x1=0,x2=1,sum=0;
+        System.out.print(x1+" ");
+        System.out.print(x2+" ");
+        for(int i=3;i<=n;i++)
+        {
+            sum=x1+x2;
+            System.out.print(sum+" ");
+            x1=x2;
+            x2=sum;
+        }
+    }
+}
+
+======================================================================================================================
