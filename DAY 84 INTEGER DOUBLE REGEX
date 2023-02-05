@@ -1,0 +1,42 @@
+DAY 84
+========
+
+CODING LANGUAGE:
+==================
+
+JAVA
+
+=======================================
+
+OUTPUT:
+========
+
+true
+
+============================================================
+
+CODE:
+======
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+ 
+public class INT_DECIMAL_REGAX {
+  
+ public static void main(String[] args) {
+   
+  String testString = " .4534 ";
+  testString = testString.trim();
+   
+  String regexDecimal = "^-?\\d*\\.\\d+$";
+  String regexInteger = "^-?\\d+$";
+  String regexDouble = regexDecimal + "|" + regexInteger;
+ 
+  Pattern pattern = Pattern.compile(regexDouble);
+  Matcher matcher = pattern.matcher(testString);
+  System.out.println(matcher.find());
+ 
+ }
+}
+
+============================================================================================================================
