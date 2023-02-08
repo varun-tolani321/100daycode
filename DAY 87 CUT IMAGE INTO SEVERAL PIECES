@@ -1,0 +1,57 @@
+DAY 87
+========
+
+CODING LANGUAGE:
+==================
+
+JAVA
+
+========================================
+
+OUTPUT:
+=========
+
+A SINGLE IMAGE WILL BE CONVERTED INTO SEVERAL PIECES.
+
+
+==========================================================================
+
+CODE:
+======
+
+import java.awt.image.BufferedImage;
+import java.io.File;
+import javax.imageio.ImageIO;
+
+public class CutImage {
+  public static void main(String[] args) throws Exception {
+    // Load the image file into a BufferedImage object
+    BufferedImage originalImage = ImageIO.read(new File("wallhaven-kx98xd.jpg"));
+
+    // Specify the number of rows and columns to split the image into
+    int rows = 3;
+    int cols = 3;
+
+    // Calculate the width and height of each piece
+    int pieceWidth = originalImage.getWidth() / cols;
+    int pieceHeight = originalImage.getHeight() / rows;
+
+    // Loop through each row and column
+    for (int x = 0; x < rows; x++) {
+      for (int y = 0; y < cols; y++) {
+        // Create a new BufferedImage object for each piece
+        BufferedImage piece = new BufferedImage(pieceWidth, pieceHeight, originalImage.getType());
+
+        // Draw the piece of the original image onto the new image
+        piece.getGraphics().drawImage(originalImage, 0, 0, pieceWidth, pieceHeight,
+            pieceWidth * y, pieceHeight * x, pieceWidth * y + pieceWidth,
+            pieceHeight * x + pieceHeight, null);
+
+        // Save the piece as a separate image file
+        ImageIO.write(piece, "jpg", new File("output" + x + y + ".jpg"));
+      }
+    }
+  }
+}
+
+============================================================================================================================================
