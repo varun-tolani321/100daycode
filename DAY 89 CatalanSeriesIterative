@@ -1,0 +1,54 @@
+DAY 89
+=======
+
+
+CODING LANGUAGE:
+==================
+
+JAVA
+
+=============================
+
+
+OUTPUT:
+=========
+
+The first 15 terms of Catalan series are: 
+1 1 2 5 14 42 132 429 1430 4862 16796 58786 208012 742900 2674440
+
+=================================================================================================================================================
+
+
+CODE:
+======
+
+public class CatalanSeriesIterative
+{
+public static void main(String argvs[])
+{
+               // Defines the number of terms upto which we are printing the Catalan series
+               int noOfTerms = 15;
+               System.out.print("The first " + noOfTerms + " terms of Catalan series are: \n");
+               // We start from 0th term
+               for(int i = 0; i < noOfTerms; i++)
+               {
+                               long term = 1; // initialized by 1 for calculating terms of the series
+                               // The following for loops is calculating 
+                               for(int j = i + 2; j <= 2 * i; j++)
+                               {
+                                   //  = (n + 2) * (n + 3) * (n +4) * … * 2n           
+                                   term = term * j;
+                               }
+                               for(int j = 2; j <= i; j++)
+                               {
+                                  // whatever the result we get in the above loop
+                                  // must be divided by the n! = (1 * 2 * 3 * … * n).  
+                                  term = term / j;
+                               }
+                               // displaying the terms
+                               System.out.print(term + " ");
+               }
+}
+}
+
+============================================================================================================================================
