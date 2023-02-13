@@ -1,0 +1,41 @@
+DAY 92
+=======
+
+
+CODING LANGUAGE:
+===================
+
+JAVA
+
+======================================
+
+OUTPUT:
+=========
+
+The first20 terms of the Square series are: 
+1 4 9 16 25 36 49 64 81 100 121 144 169 196 225 256 289 324 361 400 
+
+======================================================================================================
+
+CODE:
+=======
+
+public class SquareSeriesIterative
+{
+public static void main(String argvs[])
+{
+    // Defines the number of terms up to which we are printing the Square series
+    int noOfTerms = 20;
+    System.out.print("The first"  + noOfTerms + " terms of the Square series are: \n");
+    for(int i = 1; i <= noOfTerms; i++)
+    {
+             // calculating the term using the formula defined above
+             int term = (i * i);
+                // displaying the term
+                System.out.print(term + " ");
+    }
+}  
+} 
+
+
+=================================================================================================================================================
