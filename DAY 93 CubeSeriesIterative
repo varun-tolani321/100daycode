@@ -1,0 +1,39 @@
+DAY 93
+========
+
+
+CODING LANGUAGE:
+===================
+
+JAVA
+
+============================================
+
+OUTPUT:
+=========
+
+1 8 27 64 125 216 343 512 729 1000 1331 1728 2197 2744 3375 4096 4913 5832 6859 8000 
+
+===================================================================================================================================
+
+CODE:
+======
+
+public class CubeSeriesIterative
+{
+public static void main(String argvs[])
+{
+    // Defines the number of terms up to which we are printing the Cube series
+    int noOfTerms = 20;
+    System.out.print("The first " + noOfTerms + " terms of the Cube series are: \n");
+    for(int i = 1; i <= noOfTerms; i++)
+    {
+             // calculating the term using the formula defined above
+             int term = (i * i * i);
+                // displaying the term
+                System.out.print(term + " ");
+    }
+}  
+} 
+
+===================================================================================================================================
