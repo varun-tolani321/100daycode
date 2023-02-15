@@ -1,0 +1,47 @@
+DAY 94
+========
+
+
+CODING LANGUAGE:
+==================
+
+JAVA
+
+================================
+
+INPUT:
+=======
+2016-07-14 09:00:02
+
+
+OUTPUT:
+=========
+07/14/2016, 9:00:02
+
+=============================================================================================================================
+
+
+CODE:
+======
+
+import java.util.*;
+import java.text.*;
+class a
+{
+    public static void main(String []args)
+    {
+        try{
+        Scanner sc= new Scanner(System.in);
+        String s=sc.nextLine();
+        Date date=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(s);
+        String v=new SimpleDateFormat("MM/dd/yyyy, H:mm:ss").format(date);
+        System.out.print(v);
+        }
+        catch(ParseException e)
+        {
+            e.printStackTrace();
+        }
+}
+}
+
+=============================================================================================================================
