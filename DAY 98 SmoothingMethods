@@ -1,0 +1,107 @@
+DAY 98
+========
+
+
+CODING LANGUAGE:
+=====================
+
+JAVA
+
+=========================================================
+
+Input: [4, 8, 9, 15, 21, 21, 24, 25, 26, 28, 29, 34]
+Output: 
+Bin by means: 
+Bin 1: 9, 9, 9, 9
+Bin 2: 22, 22, 22, 22
+Bin 3: 29, 29, 29, 29
+Bin by median: 
+Bin 1: 8, 8, 8, 8
+Bin 2: 22, 22, 22, 22
+Bin 3: 28, 28, 28, 28
+Bin by boundary: 
+Bin 1: 4, 4, 4, 15
+Bin 2: 21, 21, 25, 25
+Bin 3: 26, 26, 26, 34
+
+
+=====================================================================================================================================================
+
+CODE:
+======
+
+import java.util.Arrays;
+
+public class SmoothingMethods {
+
+    public static void main(String[] args) {
+        int[] dataSt = {4, 8, 9, 15, 21, 21, 24, 25, 26, 28, 29, 34};
+        System.out.println("Input: " + Arrays.toString(dataSt));
+        System.out.println("Output: ");
+        getBinByMeans(dataSt);
+        getBinByMedian(dataSt);
+         getBinByBoundary(dataSt);
+    }
+
+    //Bin by means
+    public static void getBinByMeans(int[] dataSet) {
+        System.out.println("Bin by means: ");
+        int sum = 0;
+        int count = 0;
+        int k=1;
+        for (int i = 0; i < dataSet.length; i++) {
+            sum += dataSet[i];
+            count++;
+            if (count == 4) {
+                sum/=4;
+                System.out.println("Bin " + k + ": " + sum + ", " + sum + ", " + sum + ", " + sum);
+                sum = 0;
+                count = 0;
+                k++;
+            }
+        }
+    }
+
+  
+    //Bin by median
+    public static void getBinByMedian(int[] dataSet) {
+        System.out.println("Bin by median: ");
+        int k=1;
+        int c=(int)(4/2),j=0;
+        for (int i = 0; i < dataSet.length; i += 4) {
+            int median = 0;
+            j=i+c;
+            median=(dataSet[j]/2+dataSet[j-1]/2);
+            System.out.println("Bin " + k + ": " + median + ", " + median + ", " + median + ", " + median);
+            k++;
+        }
+    }
+    
+     //Bin by boundary
+    public static void getBinByBoundary(int[] dataSet) {
+        System.out.println("Bin by boundary: ");
+        int sum1=0,sum2=0,k=1;
+        for (int i = 0; i < dataSet.length; i += 4) {
+            int boundary1 = i;
+            int boundary2 =i+4-1;
+            for(int j=i;j<i+4;j++)
+            {
+                sum1=dataSet[j]-dataSet[boundary1];
+                sum2=dataSet[boundary2]-dataSet[j];
+                if(sum1<sum2)
+                {
+                    dataSet[j]=dataSet[boundary1];
+                }
+                else
+                {
+                    dataSet[j]=dataSet[boundary2];
+                }
+            }
+            System.out.println("Bin " + k + ": " + dataSet[boundary1] + ", " + dataSet[i + 1] + ", " + dataSet[i + 2] + ", " + dataSet[boundary2]);
+            k++;
+        }
+    }
+
+}
+
+=========================================================================================================================================================
