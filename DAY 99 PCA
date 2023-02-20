@@ -1,0 +1,125 @@
+DAY 99
+========
+
+CODING LANGUAGE:
+==================
+
+JAVA
+
+=========================================
+
+OUTPUT:
+========
+
+Eigen Values : 0.06285714285714286 , 6.938893903907228E-18
+Eigen Vector 1: -0.06285714285714285i + 0.031428571428571465j
+Eigen Vector 2: -0.06285714285714285i + -0.03142857142857139j
+
+==========================================================================================
+
+CODE:
+======
+
+import java.util.*; 
+
+public class PCA 
+{ 
+	static final int N = 7; 
+
+	static double[][] features = new double[][] 
+	{ 
+		{ 2.5, 2.4 }, 
+		{ 0.5, 0.4 }, 
+		{ 2.2, 2.8 }, 
+		{ 1.9, 2.2 }, 
+		{ 3.2, 3.0 }, 
+		{ 2.0, 2.6 }, 
+		{ 1.0, 1.1 } 
+	}; 
+
+	static double[] mean = new double[N]; 
+
+	static void mean() 
+	{ 
+		for (int i = 0; i < N; i++) 
+		{ 
+			double sum = 0; 
+			for (int j = 0; j < 2; j++) 
+				sum += features[i][j]; 
+			mean[i] = sum / 2; 
+		} 
+	} 
+
+	static double[][] covariance() 
+	{ 
+		double[][] covar = new double[2][2]; 
+		for (int i = 0; i < 2; i++) 
+		{ 
+			for (int j = 0; j < 2; j++) 
+			{ 
+				for (int k = 0; k < N; k++) 
+					covar[i][j] += (features[k][i] - 
+									mean[k]) * (features[k][j] - mean[k]); 
+				covar[i][j] /= (N); 
+			} 
+		} 
+		return covar; 
+	} 
+
+	static void eigenValues(double[][] covar) 
+	{ 
+		double a = covar[0][0]; 
+		double b = covar[0][1]; 
+		double c = covar[1][0]; 
+		double d = covar[1][1]; 
+
+		double eigenValue1 = (a + d) / 2 + 
+						Math.sqrt(4 * b * c + 
+							(Math.pow((a - d), 2))) / 2; 
+
+		double eigenValue2 = (a + d) / 2 - 
+						Math.sqrt(4 * b * c + 
+							(Math.pow((a - d), 2))) / 2; 
+
+		System.out.println("Eigen Values : " + 
+								eigenValue1 + " , " + eigenValue2); 
+	} 
+
+	static void eigenVector(double[][] covar) 
+	{ 
+		double a = covar[0][0]; 
+		double b = covar[0][1]; 
+		double c = covar[1][0]; 
+		double d = covar[1][1]; 
+
+		double eigenValue1 = (a + d) / 2 + 
+						Math.sqrt(4 * b * c + 
+							(Math.pow((a - d), 2))) / 2; 
+
+		double eigenVector11 = 2 * c; 
+		double eigenVector12 = eigenValue1 - a; 
+
+		double eigenValue2 = (a + d) / 2 - 
+						Math.sqrt(4 * b * c + 
+							(Math.pow((a - d), 2))) / 2; 
+
+		double eigenVector21 = 2 * c; 
+		double eigenVector22 = eigenValue2 - a; 
+
+		System.out.println("Eigen Vector 1: " + 
+						eigenVector11 + "i + " + eigenVector12 + "j"); 
+
+		System.out.println("Eigen Vector 2: " + 
+						eigenVector21 + "i + " + eigenVector22 + "j"); 
+	} 
+
+	public static void main(String[] args) 
+	{ 
+		mean(); 
+		double[][] covar = covariance(); 
+		eigenValues(covar); 
+		eigenVector(covar); 
+	} 
+}
+
+================================================================================================================================
